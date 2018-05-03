@@ -1,11 +1,10 @@
 package app;
 
 import app.fakes.FakeMessageService;
-import messenger.MessageService;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MessengerWithFakesTest
@@ -25,7 +24,7 @@ class MessengerWithFakesTest
         var result = _target.TestConnection("test");
 
         //Assert
-        assertEquals(result, 0);
+        assertEquals(0,result);
     }
 
     @Test
@@ -35,6 +34,46 @@ class MessengerWithFakesTest
         var result = _target.TestConnection("wrong name");
 
         //Assert
-        assertEquals(result, 1);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void SendMessage_ForEverythingOk_ShouldReturnZero()
+    {
+        //Arrange & Act
+        var result = _target.SendMessage("test", "Message");
+
+        //Assert
+        assertThat(result).isEqualTo(0);
+    }
+
+    @Test
+    public void SendMessage_ForProblemsWithSending_ShouldReturnOne()
+    {
+        //Arrange & Act
+        var result = _target.SendMessage("problems", "test");
+
+        //Assert
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    public void SendMessage_ForWrongServer_ShouldReturnTwo()
+    {
+        //Arrange & Act
+        var result = _target.SendMessage("tests", "message");
+
+        //Assert
+        assertThat(result).isEqualTo(2);
+    }
+
+    @Test
+    public void SendMessage_ForWrongMessage_ShouldReturnTwo()
+    {
+        //Arrange & Act
+        var result = _target.SendMessage("tests", "");
+
+        //Assert
+        assertThat(result).isEqualTo(2);
     }
 }

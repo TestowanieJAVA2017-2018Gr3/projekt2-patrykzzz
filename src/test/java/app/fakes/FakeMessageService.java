@@ -20,6 +20,16 @@ public class FakeMessageService implements MessageService
     @Override
     public SendingStatus Send(String server, String message) throws MalformedRecipientException
     {
-        return SendingStatus.SENT;
+        if (server == "problems")
+        {
+            return SendingStatus.SENDING_ERROR;
+        }
+        if (server == "test" && !message.isEmpty())
+        {
+            return SendingStatus.SENT;
+        } else
+        {
+            throw new MalformedRecipientException();
+        }
     }
 }
