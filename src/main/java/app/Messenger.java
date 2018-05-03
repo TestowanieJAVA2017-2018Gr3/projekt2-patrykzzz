@@ -17,7 +17,7 @@ public class Messenger
 
     public int TestConnection(String server)
     {
-        return _messageService.CheckConnection(server) == ConnectionStatus.FAILURE ? 1 : 0;
+        return _messageService.CheckConnection(server) == ConnectionStatus.SUCCESS ? 0 : 1;
     }
 
     public int SendMessage(String server, String message)
