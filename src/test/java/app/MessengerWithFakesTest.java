@@ -28,7 +28,7 @@ class MessengerWithFakesTest
     }
 
     @Test
-    public void TestConncetion_ForWrongServerName_ShouldReturnOne()
+    public void TestConnection_ForWrongServerName_ShouldReturnOne()
     {
         //Arrange & Act
         var result = _target.TestConnection("wrong name");
