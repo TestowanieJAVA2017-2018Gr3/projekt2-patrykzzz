@@ -1,9 +1,10 @@
 package messenger;
 
-public interface MessageService {
-		
-	ConnectionStatus checkConnection(String server);
-	
-	SendingStatus send(String server, String message) throws MalformedRecipientException;
+public interface MessageService
+{
+
+    ConnectionStatus CheckConnection(String server);
+
+    SendingStatus Send(String server, String message) throws MalformedRecipientException;
 
 }

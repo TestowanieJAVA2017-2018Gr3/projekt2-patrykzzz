@@ -1,5 +1,6 @@
 package messenger;
 
-public enum ConnectionStatus {	
-	SUCCESS, FAILURE	
+public enum ConnectionStatus
+{
+    SUCCESS, FAILURE
 }

@@ -1,7 +1,6 @@
 package messenger;
 
-public enum SendingStatus {
-	
-	SENT, SENDING_ERROR
-
+public enum SendingStatus
+{
+    SENT, SENDING_ERROR
 }
