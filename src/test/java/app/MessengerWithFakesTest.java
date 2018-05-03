@@ -27,4 +27,14 @@ class MessengerWithFakesTest
         //Assert
         assertEquals(result, 0);
     }
+
+    @Test
+    public void TestConncetion_ForWrongServerName_ShouldReturnOne()
+    {
+        //Arrange & Act
+        var result = _target.TestConnection("wrong name");
+
+        //Assert
+        assertEquals(result, 1);
+    }
 }
