@@ -24,7 +24,7 @@ class MessengerWithFakesTest
         var result = _target.TestConnection("test");
 
         //Assert
-        assertEquals(0,result);
+        assertEquals(0, result);
     }
 
     @Test

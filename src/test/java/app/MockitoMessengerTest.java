@@ -41,13 +41,14 @@ public class MockitoMessengerTest
     void SendMessage_ForWrongMessage_ShouldInvocationSucceed() throws MalformedRecipientException
     {
         //Arrange
-        when(_messageService.Send("test", null)).thenThrow(MalformedRecipientException.class);
+        final String serverName = "test";
+        when(_messageService.Send(serverName, null)).thenThrow(MalformedRecipientException.class);
 
         //Act
-        var result = _target.SendMessage("test", null);
+        var result = _target.SendMessage(serverName, null);
 
         //Assert
-        verify(_messageService).Send("test", null);
+        verify(_messageService).Send(serverName, null);
     }
 
     @Test
@@ -64,7 +65,7 @@ public class MockitoMessengerTest
     }
 
     @Test
-    void SendMessage_ForInternalServiceError_ShouldReturnTwo() throws MalformedRecipientException
+    void SendMessage_ForInternalServiceError_ShouldReturnOne() throws MalformedRecipientException
     {
         //Arrange
         when(_messageService.Send(anyString(), anyString())).thenReturn(SendingStatus.SENDING_ERROR);
@@ -80,13 +81,14 @@ public class MockitoMessengerTest
     void SendMessage_ForEverythingOk_ShouldInvocationSucceed() throws MalformedRecipientException
     {
         //Arrange
-        when(_messageService.Send("Server", "Test")).thenReturn(SendingStatus.SENT);
+        final String serverName = "Test", message = "Message";
+        when(_messageService.Send(serverName, message)).thenReturn(SendingStatus.SENT);
 
         //Act
-        var result = _target.SendMessage("Server", "Test");
+        var result = _target.SendMessage(serverName, message);
 
         //Assert
-        verify(_messageService, atLeastOnce()).Send("Server", "Test");
+        verify(_messageService, atLeastOnce()).Send(serverName, message);
     }
 
     @Test

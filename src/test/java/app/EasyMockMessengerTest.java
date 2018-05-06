@@ -70,11 +70,12 @@ public class EasyMockMessengerTest
     void SendMessage_ForEverythingOk_ShouldReturnZero() throws MalformedRecipientException
     {
         //Arrange
-        expect(messageService.Send("test", "message")).andStubReturn(SendingStatus.SENT);
+        final String server = "Test", message = "Message";
+        expect(messageService.Send(server, message)).andStubReturn(SendingStatus.SENT);
         replay(messageService);
 
         //Act
-        var result = _target.SendMessage("test", "message");
+        var result = _target.SendMessage(server, message);
 
         //Assert
         assertThat(result).isEqualTo(0);
