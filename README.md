@@ -1,6 +1,10 @@
 # Testowanie aplikacji JAVA 2017-2018
 ## Projekt 2 (Maven, JUnit oraz atrapy) 
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/patrykzzz/projekt2-patrykzzz?branch=master)](https://bettercodehub.com/)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/4efa49e4ed6f30cd0c03/maintainability)](https://codeclimate.com/github/patrykzzz/projekt2-patrykzzz/maintainability)
+
 -----------------------
 ### REGUŁY GRY
 
